@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "jsx": "react",
+    "checkJs": true,             
+    "lib": ["ES2020", "DOM"]     
+  },
+  "include": ["src/**/*"]        
+}
