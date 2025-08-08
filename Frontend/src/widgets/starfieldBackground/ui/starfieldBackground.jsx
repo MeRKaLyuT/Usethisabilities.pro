@@ -36,7 +36,7 @@ const StarfieldBackground = () => {
             stars.push({
                 distance: Math.random() * maxDist,
                 alpha: Math.random() * 0.5 + 0.5,
-                speed: Math.random() * 0.0002 + 0.0002,
+                speed: Math.random() * 0.0002 + 0.00002,
                 size: Math.random() * 2 + 0.5,
                 angle: Math.random() * Math.PI * 2,
             });
