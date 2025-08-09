@@ -1,5 +1,4 @@
 .home {
-  color: #fff;
+  color: var(--mainText);
   font-size: 30px;
-  font-family: 'Inter';
 }
