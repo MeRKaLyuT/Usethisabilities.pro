@@ -1,6 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import * as styles from './starfieldBackground.module.css';
 
+// do a calculation of the star's traectory in advance
 
 const StarfieldBackground = () => {
     const ref = useRef(null);
@@ -23,7 +24,7 @@ const StarfieldBackground = () => {
             ctx.scale(dpr, dpr);
         };
 
-        setSize(); // test delete this
+        setSize(); 
         const observer = new ResizeObserver(setSize);
         observer.observe(canvas);
 
@@ -70,7 +71,6 @@ const StarfieldBackground = () => {
         animate();
 
         return () => {
-            window.removeEventListener('resize', setSize);
             observer.disconnect();
             cancelAnimationFrame(animationId);
         };
