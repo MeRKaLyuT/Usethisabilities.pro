@@ -1,3 +1,7 @@
+:root {
+    --bg:##090a0d;
+}
+
 body {
     background-color: black;
     display: block;
