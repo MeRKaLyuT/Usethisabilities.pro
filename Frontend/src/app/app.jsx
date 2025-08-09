@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Home from '../pages/homePage/ui/home';
+import {Home} from '../pages/homePage/index.js';
 import Header from '../widgets/header/ui/header';
 import {StarfieldBackground} from '../widgets/starfieldBackground/index';
 

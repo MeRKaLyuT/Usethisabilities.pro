@@ -22,8 +22,8 @@ export default function Header() {
       <div className={`${styles.menu} ${moonState ? styles.open : ''}`}>
         <ul className={styles.menuList}>
           {items.map(({label, to}) => (
-            <li className={styles.menuButton} key={to}>
-              <Link to={to}>{label}</Link>
+            <li key={to}>
+              <Link className={styles.menuButton} to={to}>{label}</Link>
             </li>
           ))}
         </ul>

@@ -84,6 +84,7 @@ module.exports = {
         // do life easier with automatic <script> and <link> in main html file
         new HtmlWebpackPlugin({
             template: './src/app/index.html',
+            favicon: path.resolve(__dirname, 'favicon.ico'),
         }),
     ],
 };

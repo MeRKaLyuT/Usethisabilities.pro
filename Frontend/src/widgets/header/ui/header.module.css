@@ -19,7 +19,6 @@ html {
 body {
     display: flex;
     min-height: 100vh;
-    background: #000;
     justify-content: flex-end;
 }
 
