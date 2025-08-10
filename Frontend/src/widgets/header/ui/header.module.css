@@ -37,7 +37,10 @@ body {
     height: 8rem;
     background: #000;
     border-radius: 50%;
-    position: relative;    
+    position: relative;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 .moon::after {
