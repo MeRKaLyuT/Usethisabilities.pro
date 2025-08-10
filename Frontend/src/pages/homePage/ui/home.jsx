@@ -18,11 +18,11 @@ const Home = () => {
       <div className={styles.hero}>
         <div className={styles.heroMain}>
           <Link to={'/skills'} className={styles.heroMain1}>
-            <h3>Find any skill</h3>
+            <a>Find any skill</a>
           </Link>
           <div className={styles.sep}></div>
           <Link to={'/skills'} className={styles.heroMain2}>
-            <h3>Create your own</h3>
+            <a>Create your own</a>
           </Link>
         </div>
         <div className={styles.heroCards}>
