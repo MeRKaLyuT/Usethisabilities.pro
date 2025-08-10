@@ -11,5 +11,7 @@ This project is inspired by [roadmap.sh](https://roadmap.sh), but I want to make
 It’s built with **React** (pure JSX, no TypeScript for now), uses **ESLint** + **Husky** for linting and pre-commit checks.  
 You can find all dependencies in `package.json`.
 
+I'm using Django for the Backend
+
 ### Contacts
 [Telegram](https://web.telegram.org/k/#-2423164911)
