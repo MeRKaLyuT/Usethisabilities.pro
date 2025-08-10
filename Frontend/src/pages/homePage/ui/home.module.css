@@ -38,6 +38,7 @@
   justify-content: center;
   color: var(--mainText);
   text-decoration: none;
+  transition: box-shadow 0.3s ease-in;
 }
 
 .heroMain1:hover {
@@ -50,6 +51,7 @@
   justify-content: center;
   color: var(--mainText);
   text-decoration: none;
+  transition: box-shadow 0.3s ease-in;
 }
 
 .heroMain2:hover {
