@@ -1,7 +1,61 @@
 .home {
   color: var(--mainText);
   font-size: 30px;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.heroh1 {
+  letter-spacing: 0.2rem;
+}
+
+.hero {
+  width: 70%;
+  border-radius: 10px;
+  opacity: 100%;
+  background:
+    radial-gradient(140% 140% at 0% 100%, rgba(139,92,246,.25) 0%,
+      rgba(139,92,246,.08) 45%, transparent 75%),
+    linear-gradient(180deg, rgba(255,255,255,.04) 0%, transparent 40%),
+    #11161D;
+}
+
+.heroMain {
+  display: flex;
+  height: 10rem;
+}
+
+.sep {
+  width: 3px; align-self: stretch;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.15) 20%, rgba(255,255,255,.15) 80%, transparent);
+}
+
+.heroMain1 {
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  color: var(--mainText);
+  text-decoration: none;
+}
+
+.heroMain1:hover {
+  box-shadow:0 10px 30px rgba(139,92,246,.18)
+}
+
+.heroMain2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  color: var(--mainText);
+  text-decoration: none;
+}
+
+.heroMain2:hover {
+  box-shadow:0 10px 30px rgba(139,92,246,.18)
+}
+
+.heroCards {
+
 }

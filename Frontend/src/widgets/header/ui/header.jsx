@@ -7,8 +7,8 @@ export default function Header() {
   const [moonState, setMoonState] = useState(false);
   const items = [
       {label: 'Main', to: '/'},
-      {label: 'Trips', to: 'roadmaps'},
-      {label: 'Profile', to: 'profile'},
+      {label: 'Trips', to: '/skills'},
+      {label: 'Profile', to: '/profile'},
     ];
 
   return (
