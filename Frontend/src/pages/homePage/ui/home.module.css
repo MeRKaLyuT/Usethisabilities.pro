@@ -1,6 +1,6 @@
 .home {
   color: var(--mainText);
-  font-size: 30px;
+  font-size: 3rem;
   gap: 2rem;
   display: flex;
   flex-direction: column;
@@ -33,29 +33,35 @@
 }
 
 .heroMain1 {
+  margin: 0;
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: var(--mainText);
   text-decoration: none;
   transition: box-shadow 0.3s ease-in;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .heroMain1:hover {
-  box-shadow:0 5px 20px rgba(139,92,246,.18)
+  box-shadow:0 5px 10px rgba(139,92,246,.18)
 }
 
 .heroMain2 {
+  margin: 0;
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: var(--mainText);
   text-decoration: none;
   transition: box-shadow 0.3s ease-in;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .heroMain2:hover {
-  box-shadow:0 5px 20px rgba(139,92,246,.18)
+  box-shadow:0 5px 10px rgba(139,92,246,.18)
 }
 
 .heroCards {
