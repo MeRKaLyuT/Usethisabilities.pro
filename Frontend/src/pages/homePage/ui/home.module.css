@@ -42,7 +42,7 @@
 }
 
 .heroMain1:hover {
-  box-shadow:0 10px 30px rgba(139,92,246,.18)
+  box-shadow:0 5px 20px rgba(139,92,246,.18)
 }
 
 .heroMain2 {
@@ -55,7 +55,7 @@
 }
 
 .heroMain2:hover {
-  box-shadow:0 10px 30px rgba(139,92,246,.18)
+  box-shadow:0 5px 20px rgba(139,92,246,.18)
 }
 
 .heroCards {

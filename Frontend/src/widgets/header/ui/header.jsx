@@ -16,8 +16,10 @@ export default function Header() {
       className={styles.header}
       onMouseEnter={() => setMoonState(true)}
       onMouseLeave={() => setMoonState(false)}
+      onClick={() => setMoonState(!moonState)}
+      onFocus={() => setMoonState(true)}
       >
-      <div className={`${styles.moon} ${moonState ? styles.paused : ''}`}>
+      <div className={`${styles.moon} ${moonState ? styles.paused : ''}`} tabIndex={0}>
       </div>
       <div className={`${styles.menu} ${moonState ? styles.open : ''}`}>
         <ul className={styles.menuList}>

@@ -80,6 +80,11 @@ body {
     pointer-events: auto;
 }
 
+.menu:focus {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .menuList {
     display: flex;
     flex-direction: column;
