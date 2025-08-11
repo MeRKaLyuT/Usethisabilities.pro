@@ -1,5 +1,5 @@
 from django.urls import path
-form .views import ping, me
+from .views import ping, me
 
 
 urlpatterns = [
