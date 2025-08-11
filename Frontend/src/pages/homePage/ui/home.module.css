@@ -12,6 +12,7 @@
 }
 
 .hero {
+  margin-top: 1rem;
   width: 70%;
   border-radius: 10px;
   opacity: 100%;
@@ -42,6 +43,7 @@
   text-decoration: none;
   transition: box-shadow 0.3s ease-in;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 4rem;
 }
 
 .heroMain1:hover {
@@ -58,6 +60,7 @@
   text-decoration: none;
   transition: box-shadow 0.3s ease-in;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 4rem;
 }
 
 .heroMain2:hover {
@@ -65,5 +68,5 @@
 }
 
 .heroCards {
-
+  margin: 0;
 }
