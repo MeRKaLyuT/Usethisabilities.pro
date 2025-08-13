@@ -1,0 +1,13 @@
+.ping {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn {
+    border-radius: 15px;
+    border-color: var(--mainText);
+    border-style: none;
+    padding: 1rem;
+}
