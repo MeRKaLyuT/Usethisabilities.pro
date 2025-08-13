@@ -44,6 +44,7 @@
   transition: box-shadow 0.3s ease-in;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 4rem;
+  color: var(--text);
 }
 
 .heroMain1:hover {
@@ -61,6 +62,7 @@
   transition: box-shadow 0.3s ease-in;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 4rem;
+  color: var(--text);
 }
 
 .heroMain2:hover {
