@@ -22,16 +22,3 @@ const App = () => {
 };
 
 export default App;
-
-// function r(min, max) {
-//     return Math.floor(Math.random() * (max - min) + min);
-// }
-
-// const App = () => {
-//     const radius = r(5,10);
-//     return(
-//         console.log(radius)
-//     );
-// }
-
-// export default App;

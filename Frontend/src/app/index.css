@@ -6,6 +6,10 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+html {
+    font-size: 62.5%;
+}
+
 body {
     background-color: black;
     display: block;
