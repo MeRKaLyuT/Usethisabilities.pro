@@ -34,7 +34,7 @@
     background: var(--mainText);
     border-radius: 50%;
     z-index: -1;
-    animation: moon-light 5s 0.1s linear infinite alternate;
+    box-shadow: 0px 0px 2px #fff, 0px 0px 3px 0px #fff;
 }
 
 .moon.paused,
@@ -43,11 +43,11 @@
 }
 
 .menu {
-    position: relative;       /* теперь часть потока, а не абсолют */
-    margin-top: 1rem;         /* расстояние под луной */
+    position: relative;
+    margin-top: 1rem;
     width: 8rem;
     max-height: 0;
-    overflow: hidden;         /* прячет пункты при закрытом состоянии */
+    overflow: hidden;
     opacity: 0;
     transform: translateY(-1rem);
     pointer-events: none;
@@ -90,21 +90,4 @@
     text-align: center;
     border-radius: 1rem;
     color: #000;
-}
-
-@keyframes moon-light {
-    0% {
-        transform: translateX(0.8rem) scale(0.9);
-        box-shadow: none;
-    }
-
-    50% {
-        transform: translate(0px, 0px) scale(1.02);
-        box-shadow: 0px 0px 5px #fff, 0px 0px 5px 2px #fff;
-    }
-
-    100% {
-        transform: translateX(-0.8rem) scale(0.9);
-        box-shadow: none;
-    }
 }

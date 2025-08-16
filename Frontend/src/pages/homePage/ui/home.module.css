@@ -39,10 +39,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--mainText);
   text-decoration: none;
   transition: box-shadow 0.3s ease-in;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  
   font-size: 4rem;
   color: var(--text);
 }
@@ -57,7 +56,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--mainText);
   text-decoration: none;
   transition: box-shadow 0.3s ease-in;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
