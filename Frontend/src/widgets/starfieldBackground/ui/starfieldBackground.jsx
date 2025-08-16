@@ -41,7 +41,7 @@ const StarfieldBackground = () => {
                 
                 distance,
                 size: Math.random() * 2 + 0.5,
-                alpha: Math.random() * 0.5 + 0.5,
+                alpha: Math.random() * 0.5 + 0.4,
             };
         }
         
