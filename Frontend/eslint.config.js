@@ -1,62 +1,57 @@
-import {FlatCompat} from '@eslint/eslintrc';
+import js from '@eslint/js';
 import babelParser from '@babel/eslint-parser';
 import reactPlugin from 'eslint-plugin-react';
 import hooksPlugin from 'eslint-plugin-react-hooks';
+import { FlatCompat } from '@eslint/eslintrc';
+import globals from 'globals';
 
-// Resolve plugins/configs from your project root
-const compat = new FlatCompat({baseDirectory: process.cwd()});
+
+const compat = new FlatCompat({ baseDirectory: process.cwd() });
 
 export default [
-  // 1) Pull in Google’s flat-config wrappers
-  ...compat.extends(
-    'google',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-  ),
+  { settings: { react: { version: 'detect' } } },
 
-  // 2) Our overrides
+  js.configs.recommended,
+
+  ...compat.extends('plugin:react/recommended', 'plugin:react-hooks/recommended'),
+
   {
-    files: ['**/*.{js,jsx}'], // target all JS files
-    ignores: ['node_modules/**'], // ignore deps
-
+    files: ['src/**/*.{js,jsx}'],
     languageOptions: {
-      parser: babelParser, // use the imported parser object
+      parser: babelParser, 
       parserOptions: {
-        requireConfigFile: false, // no separate babel.config.js needed
-        babelOptions: {
-          presets: [
-            '@babel/preset-env', // ES2020+ syntax
-            '@babel/preset-react', // JSX support
-          ],
-        },
-        ecmaVersion: 2020, // modern JS
-        sourceType: 'module', // ES modules
+        requireConfigFile: false,
+        babelOptions: { presets: ['@babel/preset-env', '@babel/preset-react'] },
+        ecmaVersion: 2020,
+        sourceType: 'module',
       },
+      globals: { ...globals.browser }, 
     },
-
-    plugins: {
-      'react': reactPlugin, // React rules
-      'react-hooks': hooksPlugin, // Hooks rules
-    },
-
-    settings: {
-      'react': {version: 'detect'}, // auto-detect React version
-    },
-
+    plugins: { react: reactPlugin, 'react-hooks': hooksPlugin },
     rules: {
-      // allow JSX in .js files
-      'react/jsx-filename-extension': ['error', {extensions: ['.js', '.jsx']}],
-      // enforce Rules of Hooks
+      'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
       'react-hooks/rules-of-hooks': 'error',
-      // verify effect dependencies
       'react-hooks/exhaustive-deps': 'warn',
-      // disable removed JSDoc rules
-      'valid-jsdoc': 'off',
-      'require-jsdoc': 'off',
       'linebreak-style': 'off',
       'quote-props': 'off',
       'indent': 'off',
-      'brace-style': ['error', '1tbs', {allowSingleLine: true}],
+      'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], 
     },
   },
+
+  {
+    files: ['eslint.config.{js,mjs,cjs}', 'webpack.config.{js,mjs,cjs}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      sourceType: 'module',
+      globals: { ...globals.node }, 
+    },
+  },
+  {
+    files: ['**/*.cjs'],
+    languageOptions: { sourceType: 'script' },
+  },
+
+  { ignores: ['node_modules/**', 'dist/**'] },
 ];
