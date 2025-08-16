@@ -56,11 +56,6 @@ const StarfieldBackground = () => {
                 fadeIn: 300 + Math.random() * 1700,
                 size: Math.random() * 2 + 0.5,
                 alpha: Math.random() * 0.5 + 0.4,
-
-                willTwinkle,
-                twinkleHz,
-                twinkleAmp,
-                twinklePhase,
             };
         }
 
