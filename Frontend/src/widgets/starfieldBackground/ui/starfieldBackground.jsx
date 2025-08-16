@@ -41,11 +41,6 @@ const StarfieldBackground = () => {
             const angle = Math.random() * Math.PI * 2;
             const speed = Math.random() * 0.013 + 0.001;
             const now = performance.now();
-
-            const willTwinkle = Math.random() < 0.6;       
-            const twinkleHz = 0.12 + Math.random() * 0.35; 
-            const twinkleAmp = 0.06 + Math.random() * 0.10; 
-            const twinklePhase = Math.random() * Math.PI * 2;
             
             return {
                 vx: distance * Math.cos(angle),
@@ -63,7 +58,6 @@ const StarfieldBackground = () => {
 
         function drawStars(dt, now) {
             ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-            const timeSec = now * 0.001;
 
             for (const s of stars) {
                 const delta = s.speed * dt;
@@ -85,12 +79,6 @@ const StarfieldBackground = () => {
 
                 let alpha = s.alpha * ease(t);
 
-                if (t >= 1 && s.willTwinkle) {
-                    const osc = Math.sin(2 * Math.PI * s.twinkleHz * timeSec + s.twinklePhase);
-                    const pulse = 1 - s.twinkleAmp + s.twinkleAmp * (osc * 0.5 + 0.5); 
-                    alpha *= pulse;
-                }
-
                 if (alpha > 1) alpha = 1;
                 ctx.beginPath();
                 ctx.arc(x, y, s.size, 0, Math.PI * 2);
@@ -99,7 +87,7 @@ const StarfieldBackground = () => {
             }
         }
 
-        const maxSpawnPerFrame = 100;
+        const maxSpawnPerFrame = 30;
         let animationId;
         let prev = performance.now();
 
