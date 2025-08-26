@@ -16,21 +16,14 @@ from datetime import timedelta
 
 from dotenv import load_dotenv
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yog$sfm!x47jykk4(7whsw4!1a03)#+71v8r-0n&@%pc-asg%q'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
+DEBUG = os.getenv("DEBUG", "1") == "1"
 
 ALLOWED_HOSTS = []
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -88,16 +81,16 @@ WSGI_APPLICATION = 'Usethisabilities.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'postgre',
+        'NAME': os.getenv("DB_NAME", ""), # db name
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': os.getenv("DB_PASSWORD", ""),
         'HOST': '127.0.0.1',
-        'PORT': '3001',
+        'PORT': '5432',
     }
 }
 
-AUTH_USER_MODEL = 'account.User'
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
