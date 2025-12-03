@@ -10,23 +10,20 @@ class CustomUserManager(UserManager):
 
         email = self.normalize_email(email) # lowercase email
 
-        extra_fields.pop("is_stuff", None)
-        extra_fields.pop("is_superuser", None)
-
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
 
-    def create_superuser(self, username, email=None, password=None, **extra_fields):
-        extra_fields.setdefault("is_stuff", True)
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
 
-        if not extra_fields.get("is_stuff"):
-            raise ValueError("Superuser is required is_stuff = True")
+        if not extra_fields.get("is_staff"):
+            raise ValueError("Superuser is required is_staff = True")
         if not extra_fields.get("is_superuser"):
             raise ValueError("Superuser is required is_superuser = True")
 
-        return self.create_user(self, username, **extra_fields)
+        return self.create_user(email, **extra_fields)

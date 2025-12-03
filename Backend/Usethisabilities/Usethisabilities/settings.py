@@ -5,9 +5,9 @@ from datetime import timedelta
 from dotenv import load_dotenv, find_dotenv
 
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(find_dotenv(filename=".env", usecwd=True), override=True)
-
 
 def env(name, default=None, required=False, cast=str):
     v = os.getenv(name, default)
@@ -17,7 +17,6 @@ def env(name, default=None, required=False, cast=str):
         return default
     v = v.strip()
     return cast(v)
-
 
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
 DEBUG = os.getenv("DEBUG", "1") == "1"
@@ -40,8 +39,8 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,3 +131,10 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+AUTH_COOKIE_ACCESS = "access_token"
+AUTH_COOKIE_REFRESH = "refresh_token"
+AUTH_COOKIE_SAMESITE = 'None'  # Strict when front on the same domen
+AUTH_COOKIE_SECURE = True
+AUTH_COOKIE_HTTPONLY = True
+
