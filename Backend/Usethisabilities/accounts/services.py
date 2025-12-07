@@ -3,7 +3,7 @@ from django.conf import settings
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
-def create_token(user):
+def create_token_for_user(user):
     refresh_t = RefreshToken.for_user(user)
     access_t = refresh_t.access_token
     return str(refresh_t), str(access_t)
