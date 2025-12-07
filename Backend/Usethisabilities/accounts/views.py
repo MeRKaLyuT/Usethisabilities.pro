@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.contrib.auth import get_user_model
 from django.core.serializers import serialize
 from rest_framework import status
@@ -44,5 +46,32 @@ class LoginView(APIView):
         response = Response(response_data, status=status.HTTP_200_OK)
 
         set_auth_cookies(response, refresh_token, access_token)
+
+        return response
+
+
+class RefreshView(APIView):
+    def post(self, request):
+        refresh_token = request.COOKIES.get(settings.AUTH_COOKIE_REFRESH)
+
+        if not refresh_token:
+            return Response({"detail": "Refresh token missing"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        try:
+            refresh = RefreshToken(refresh_token)
+            access_token = str(refresh.access_token)
+        except TokenError:
+            return Response({"detail": "Refresh token invalid or expired"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        response = Response({"detail": "Token refreshed"}, status=status.HTTP_200_OK)
+
+        response.set_cookie(
+            settings.AUTH_COOKIE_ACCESS,
+            access_token,
+            httponly=True,
+            # secure=not settings.DEBUG,
+            samesite="Lax",
+            max_age=int(timedelta(minutes=15).total_seconds())
+        )
 
         return response
