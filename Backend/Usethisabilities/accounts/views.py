@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.serializers import serialize
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -19,7 +20,6 @@ class RegisterView(APIView):
         serializer.is_valid(raise_exception=True)
 
         user = serializer.save()
-
         refresh_token, access_token = create_token_for_user(user)
 
         response_data = MeSerializer(user).data # serializer make data into the default dict {"id": "...", ...}
@@ -31,5 +31,18 @@ class RegisterView(APIView):
 
         return response
 
-# class LoginView(APIView):
 
+class LoginView(APIView):
+    def post(self, request):
+        serializer = LoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        user = serializer.save()
+        refresh_token, access_token = create_token_for_user(user)
+
+        response_data = MeSerializer(user).data
+        response = Response(response_data, status=status.HTTP_200_OK)
+
+        set_auth_cookies(response, refresh_token, access_token)
+
+        return response
