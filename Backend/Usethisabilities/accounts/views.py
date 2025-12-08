@@ -1,5 +1,4 @@
 from datetime import timedelta
-
 from django.contrib.auth import get_user_model
 from django.core.serializers import serialize
 from rest_framework import status
