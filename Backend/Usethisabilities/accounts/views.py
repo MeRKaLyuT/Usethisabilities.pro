@@ -83,3 +83,11 @@ class LogoutView(APIView):
         response = Response({"detail": "Logged out"}, status=status.HTTP_200_OK)
         clear_auth_cookies(response)
         return response
+
+
+class MeView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        serializer = MeSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
