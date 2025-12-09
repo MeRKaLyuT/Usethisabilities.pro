@@ -74,3 +74,12 @@ class RefreshView(APIView):
         )
 
         return response
+
+
+class LogoutView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        response = Response({"detail": "Logged out"}, status=status.HTTP_200_OK)
+        clear_auth_cookies(response)
+        return response
