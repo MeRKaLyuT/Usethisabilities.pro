@@ -1,0 +1,137 @@
+.card-nav-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-nav {
+  position: relative;
+  width: 100%;
+  max-width: 100rem;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: height .3s ease;
+}
+
+.card-nav-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 5;
+}
+
+.hamburger-menu {
+  width: 5%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.hamburger-line {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease, margin 0.3s ease;
+  transform-origin: 50% 50%;
+}
+
+.hamburger-line:first-child {
+  transform: translateY(-3px);
+}
+
+.hamburger-line:last-child {
+  transform: translateY(3px);
+}
+
+.hamburger-menu.open .hamburger-line:first-child {
+  transform: rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:last-child {
+  transform: rotate(-45deg);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  width: 28px;
+  height: auto;
+}
+
+.title {
+  color: white;
+}
+
+.card-nav-cta-button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.card-nav-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px;
+  padding: 0px 0.5rem;
+  display: flex;
+  gap: 12px;
+  z-index: 1;
+}
+
+.nav-card {
+  flex: 1;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-card-label {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-card-link {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.nav-card-link:hover {
+  opacity: 75%;
+}
+
+.nav-card-arrow {
+  margin-right: 0.5rem;
+}

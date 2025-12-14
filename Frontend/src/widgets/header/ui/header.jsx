@@ -5,10 +5,10 @@ import * as styles from './header.module.css';
 
 export default function Header() {
   const menuRef = useRef(null);
-  const [moonState, setMoonState] = useState(true);
+  const [moonState, setMoonState] = useState(false);
   const items = [
       {label: 'Main', to: '/'},
-      {label: 'Trips', to: '/skills'},
+      {label: 'Abilities', to: '/skills'},
       {label: 'Profile', to: '/profile'},
   ];
 

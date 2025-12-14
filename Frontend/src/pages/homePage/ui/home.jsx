@@ -8,9 +8,6 @@ import * as styles from './home.module.css';
 const Home = () => {
   return (
     <div className={styles.home}>
-      <div className={styles.heroh1}>
-        <h1>Use this abilities!</h1>
-      </div>
       <div className={styles.hero}>
         <div className={styles.heroMain}>
           <Link to={'/skills'} className={styles.heroMain1}>
