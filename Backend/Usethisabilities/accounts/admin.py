@@ -6,8 +6,6 @@ from .models import CustomUser
 @admin.register(CustomUser)
 class CustomAdmin(UserAdmin):
     model = CustomUser
-    add_form = CustomUserCreationForm
-    form = CustomUserChangeForm
     list_display = ("id", "username", "email", "is_staff", "is_active")
     ordering = ("email", "username")
     search_fields = ("email", "username")
