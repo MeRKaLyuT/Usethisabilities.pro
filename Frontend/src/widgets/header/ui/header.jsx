@@ -1,15 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import * as styles from './header.module.css';
 
 
 export default function Header() {
+  const menuRef = useRef(null);
   const [moonState, setMoonState] = useState(false);
   const items = [
       {label: 'Main', to: '/'},
-      {label: 'Trips', to: '/skills'},
+      {label: 'Abilities', to: '/skills'},
       {label: 'Profile', to: '/profile'},
-    ];
+  ];
+
+  useEffect(() => {
+    if (!moonState) return;
+
+    const onPointerDown = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) { 
+        setMoonState(false);
+      }
+    };
+
+    const onKeyDown = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMoonState(false);
+      }
+    };
+
+    document.addEventListener('pointerdown', onPointerDown, true);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown, true);
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [moonState])
 
   return (
     <div
@@ -18,8 +42,9 @@ export default function Header() {
       onMouseLeave={() => setMoonState(false)}
       onClick={() => setMoonState(!moonState)}
       onFocus={() => setMoonState(true)}
+      onBlur={() => setMoonState(false)}
       >
-      <div className={`${styles.moon} ${moonState ? styles.paused : ''}`} tabIndex={0}>
+      <div className={`${styles.moon} ${moonState ? styles.paused : ''}`} tabIndex={0} ref={menuRef}>
       </div>
       <div className={`${styles.menu} ${moonState ? styles.open : ''}`}>
         <ul className={styles.menuList}>

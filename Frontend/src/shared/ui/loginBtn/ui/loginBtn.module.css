@@ -1,0 +1,12 @@
+.main {
+    border-radius: 20px;
+    background-color: var(--mainPurple);
+    color: white;
+    height: 4rem;
+    width: 100%;
+    border: none;
+}
+
+.main:hover {
+  filter: brightness(1.05);
+}

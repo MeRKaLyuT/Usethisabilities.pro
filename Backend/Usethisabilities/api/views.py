@@ -6,7 +6,7 @@ from rest_framework.response import Response
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def ping(_request):
-    return Response({'ok': True})
+    return Response({'The server is working fine'})
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
