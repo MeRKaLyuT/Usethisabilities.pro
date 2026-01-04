@@ -6,8 +6,9 @@ import { fetchMe } from "../../../shared/api/endpoints/auth.js";
 
 export const useMe = () => {
     return useQuery({
-        queryKey: ["me"], // unique name
+        queryKey: ["me"], // unique name 
         queryFn: fetchMe,
         retry: false, // if 401 - don't repeat
+        refetchOnWindowFocus: false,
     })
 }

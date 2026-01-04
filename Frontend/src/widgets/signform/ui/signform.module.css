@@ -1,0 +1,87 @@
+.main {
+    position: fixed;
+    inset: 0;
+    width: 45%;
+    height: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    overflow: hidden;
+    z-index: 1;
+    background-image: url("./media/wavesframe3.svg");
+    border-radius: 30px;
+}
+
+.login {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    font-size: 20px;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+}
+
+.otherappslogin {
+    color: white;
+    display: flex;
+    padding-top: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 2;
+    gap: 0.5rem;
+}
+
+.loginForm {
+    color: var(--mainPurple);
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 5%;
+    
+}
+
+.input1 {
+    border-radius: 10px;
+    border: 1px solid #444;
+    outline: none;
+    height: 3rem;
+    text-align: center;
+}
+
+.input1:focus {
+    border-color: #6c5ce7;
+}
+
+
+.input2 {
+    border-radius: 10px;
+    border: 1px solid #444;
+    outline: none;
+    height: 3rem;
+    text-align: center;
+}
+
+.input2:focus {
+    border-color: #6c5ce7;
+}
+
+.signup {
+    
+}

@@ -12,12 +12,12 @@ const App = () => {
         <>
         <StarfieldBackground />
         <Header />
-        {/* <Router basename="/">
+        <Router basename="/">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
             </Routes>
-        </Router> */}
+        </Router>
         </>
     );
 };

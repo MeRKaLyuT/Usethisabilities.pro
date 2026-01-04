@@ -3,6 +3,6 @@ import axios from "axios";
 
 // main api client 
 export const api = axios.create({
-    baseURL: "http://localhost:8000/api",
+    baseURL: "http://localhost:8000/",
     withCredentials: true,
 })
