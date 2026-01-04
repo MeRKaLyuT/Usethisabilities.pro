@@ -48,8 +48,7 @@ const SignForm = () => {
                 </div>
             </div>
 
-            {isRegistered ? (
-            <div className={styles.loginForm}>
+            <div className={`${styles.loginForm} ${isRegistered ? styles.visible : styles.hidden}`}>
             <h1>Or sign in with</h1>                   
                 <form onSubmit={onSubmitLogin}> 
                     <div className={styles.inputBox}>
@@ -62,9 +61,7 @@ const SignForm = () => {
                 <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Not registered yet?</NotRegisteredYetBtn>
             </div>
 
-            ) : (
-
-            <div className={styles.signup}>
+            <div className={`${styles.signupForm} ${!isRegistered ? styles.visible : styles.hidden}`}>
                 <h1>Or sign up with</h1>
                 <form onSubmit={onSubmitRegister}> 
                     <div className={styles.inputBox}>
@@ -78,7 +75,6 @@ const SignForm = () => {
                 </form>
                 <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Already have an account?</NotRegisteredYetBtn>
             </div>
-            )}
         </div>
     )
 }

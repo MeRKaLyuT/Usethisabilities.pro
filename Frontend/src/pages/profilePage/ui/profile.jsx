@@ -10,7 +10,7 @@ const Profile = () => {
     const { data: me, isLoading, isFetching, isError} = useMe();
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <div className={styles.loading}>Loading...</div>
     }
     if (!me || isError) {
         return (

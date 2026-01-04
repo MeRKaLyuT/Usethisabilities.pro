@@ -5,3 +5,9 @@
     color: var(--text);
     z-index: -1;
 }
+
+.loading {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
