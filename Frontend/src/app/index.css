@@ -4,6 +4,7 @@
     --text: #E6EAF2;
     --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    --mainPurple: #451bdeff;
 }
 
 html {
@@ -14,4 +15,12 @@ body {
     background-color: black;
     display: block;
     font-family: var(--font-sans);
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    font-size: 15px;
 }
