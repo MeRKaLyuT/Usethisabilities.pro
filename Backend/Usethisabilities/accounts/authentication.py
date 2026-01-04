@@ -8,7 +8,7 @@ User = get_user_model()
 
 class CookieAuthentication(BaseAuthentication):
     def authenticate(self, request):
-        raw_token = request.COOKIE.get(settings.AUTH_COOKIE_ACCESS)
+        raw_token = request.COOKIES.get(settings.AUTH_COOKIE_ACCESS)
 
         if not raw_token:
             return None

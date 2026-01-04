@@ -38,7 +38,7 @@ class LoginView(APIView):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        user = serializer.save()
+        user = serializer.validated_data["user"]
         refresh_token, access_token = create_token_for_user(user)
 
         response_data = MeSerializer(user).data
@@ -77,8 +77,6 @@ class RefreshView(APIView):
 
 
 class LogoutView(APIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request):
         response = Response({"detail": "Logged out"}, status=status.HTTP_200_OK)
         clear_auth_cookies(response)
