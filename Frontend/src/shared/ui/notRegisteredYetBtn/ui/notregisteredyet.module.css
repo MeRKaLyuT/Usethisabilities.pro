@@ -1,0 +1,10 @@
+.notregisteredyet {
+    font-size: medium;
+    color: var(--mainPurple);
+}
+
+.notregisteredyet:hover {
+    opacity: 70%;
+    cursor: pointer;
+    user-select: none;
+}
