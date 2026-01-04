@@ -11,17 +11,23 @@ class RegisterSerializer(serializers.ModelSerializer):
         max_length=80,
         style={"input_type": "password"},
     )
+    password_confirm = serializers.CharField()
+    username = serializers.CharField(max_length=30)
 
     class Meta:
         model = User
-        fields = ("id", "email", "password")
-        read_only_fields = ("id")
+        fields = ("id", "email", "username", "password", "password_confirm")
+        read_only_fields = ("id",)
+
+    def validate(self, attrs):
+        if attrs["password"] != attrs["password_confirm"]:
+            raise serializers.ValidationError("Passwords do not match")
+        return attrs
 
     def create(self, validated_data):
-        password =  validated_data.pop("password")
-        user = User(**validated_data)
-        user.set_password(password)
-        user.save()
+        validated_data.pop("password_confirm")
+        password = validated_data.pop("password")
+        user = User.objects.create_user(password=password, **validated_data)
         return user
 
 
@@ -49,7 +55,7 @@ class LoginSerializer(serializers.Serializer):
 
 
 # this serializer is needed for the user output (like white list but for the data)
-class MeSerializer(serializers.Serializer):
+class MeSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ("id", "email") # add other types after the test (username, avatar...)

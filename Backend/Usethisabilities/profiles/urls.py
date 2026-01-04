@@ -1,8 +1,6 @@
-from django.urls import path
-from .views import ping, me
+from django.urls import path, include
 
 
 urlpatterns = [
-    path('ping/', ping),
-    path('me/', me),
+    path('auth/', include("accounts.urls")),
 ]
