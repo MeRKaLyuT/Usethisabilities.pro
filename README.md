@@ -2,7 +2,7 @@
 ### This is my main pet project for now.
 
 ### About me
-My name is Chaser (I'm a bit shy).  
+My name is Maxim.
 You can find my contacts at the bottom of this page.  
 Other projects are available on my [GitHub profile](https://github.com/MeRKaLyuT), for example [ready-react-start-app](https://github.com/MeRKaLyuT/Ready-react-start-app).
 
