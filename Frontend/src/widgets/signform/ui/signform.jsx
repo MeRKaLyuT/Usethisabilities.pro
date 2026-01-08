@@ -8,7 +8,6 @@ import { NotRegisteredYetBtn } from "../../../shared/ui/notRegisteredYetBtn/inde
 
 import * as styles from './signform.module.css';
 
-// need to add description of the errors on the front
 
 const SignForm = () => {
     const [username, setUsername] = useState("");
@@ -88,7 +87,7 @@ const SignForm = () => {
                         <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" className={styles.input} />
                     </div>
                     <LoginBtn disabled={isLoginPending}>Sign in</LoginBtn>
-                    {loginErrorMsg && <div style={{color: "red"}}>{loginErrorMsg}</div>}
+                    {loginErrorMsg && <div style={{color: "red", fontSize:"1.5rem"}}>{loginErrorMsg}</div>}
                 </form>
                 <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Not registered yet?</NotRegisteredYetBtn>
             </div>
@@ -103,7 +102,7 @@ const SignForm = () => {
                         <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" type="password" className={styles.input} />
                     </div>                    
                     <LoginBtn disabled={isRegisterPending}>Sign up</LoginBtn>
-                    {registerErrorMsg && <div style={{color: "red"}}>{registerErrorMsg}</div>}
+                    {registerErrorMsg && <div style={{color: "red", fontSize:"1.5rem"}}>{registerErrorMsg}</div>}
                 </form>
                 <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Already have an account?</NotRegisteredYetBtn>
             </div>
