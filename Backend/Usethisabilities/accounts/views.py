@@ -1,6 +1,6 @@
 from datetime import timedelta
 from django.contrib.auth import get_user_model
-from django.core.serializers import serialize
+from psycopg import IntegrityError
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -10,6 +10,7 @@ from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from .serializers import RegisterSerializer, LoginSerializer, MeSerializer
 from .services import create_token_for_user, set_auth_cookies, clear_auth_cookies
 from django.conf import settings
+from django.db import IntegrityError
 
 
 User = get_user_model()
@@ -20,7 +21,11 @@ class RegisterView(APIView):
         serializer = RegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        user = serializer.save()
+        try:
+            user = serializer.save()
+        except IntegrityError:
+            return Response({"detail": ["A user with such data already exists"]}, status=status.HTTP_400_BAD_REQUEST,)
+
         refresh_token, access_token = create_token_for_user(user)
 
         response_data = MeSerializer(user).data # serializer make data into the default dict {"id": "...", ...}
@@ -29,7 +34,6 @@ class RegisterView(APIView):
         # we return response_data in the response because it's more convenient to login permanently after the registr.
 
         set_auth_cookies(response, refresh_token, access_token)
-
         return response
 
 
@@ -54,15 +58,15 @@ class RefreshView(APIView):
         refresh_token = request.COOKIES.get(settings.AUTH_COOKIE_REFRESH)
 
         if not refresh_token:
-            return Response({"detail": "Refresh token missing"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"detail": ["Refresh token missing"]}, status=status.HTTP_401_UNAUTHORIZED)
 
         try:
             refresh = RefreshToken(refresh_token)
             access_token = str(refresh.access_token)
         except TokenError:
-            return Response({"detail": "Refresh token invalid or expired"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"detail": ["Refresh token invalid or expired"]}, status=status.HTTP_401_UNAUTHORIZED)
 
-        response = Response({"detail": "Token refreshed"}, status=status.HTTP_200_OK)
+        response = Response({"detail": ["Token refreshed"]}, status=status.HTTP_200_OK)
 
         response.set_cookie(
             settings.AUTH_COOKIE_ACCESS,
@@ -80,7 +84,7 @@ class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        response = Response({"detail": "Logged out"}, status=status.HTTP_200_OK)
+        response = Response({"detail": ["Logged out"]}, status=status.HTTP_200_OK)
         clear_auth_cookies(response)
         return response
 
