@@ -57,10 +57,10 @@
 }
 
 .input {
-    border-radius: 10px;
+    border-radius: 15px;
     border: 1px solid #444;
     outline: none;
-    height: 3rem;
+    height: 4rem;
     text-align: center;
 }
 
