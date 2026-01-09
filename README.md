@@ -1,6 +1,6 @@
 ## Overview
 
-UseThisAbilities is a web application inspired by roadmap.sh, with a shift towards a skill marketplace format.
+**UseThisAbilities** is a web application inspired by roadmap.sh, with a shift towards a skill marketplace format.
 Users can create and publish their own courses or share specific skills with others.
 
 The project aims to provide a more structured and focused learning experience compared to platforms like YouTube, while remaining simpler and more accessible than traditional marketplaces.
@@ -28,9 +28,10 @@ CSRF protection is used for all unsafe HTTP requests.
 
 At the current stage, most of the business logic is located on the frontend side and is openly available in the codebase.
 
-Frontend logic: features/ directory
+**Frontend logic**: features/ directory
 
-Backend business logic: minimal at the moment, planned to be expanded in future iterations
+**Backend business logic**: minimal at the moment, planned to be expanded in future iterations
+
 This decision allows faster iteration during the MVP phase.
 
 ## System Goals & Scope
@@ -66,6 +67,7 @@ These features are planned for later stages of development.
 3. Develop a mobile application
 4. Move more business logic to the backend
 5. Add role-based access control
+6. Add AI to exhance the user expirience 
 
 <hr>
 
