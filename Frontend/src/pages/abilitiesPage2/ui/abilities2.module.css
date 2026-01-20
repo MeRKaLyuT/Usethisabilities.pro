@@ -1,0 +1,214 @@
+﻿.page {
+    min-height: 100vh;
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    padding: 120px 0 80px;
+}
+
+.container {
+    width: min(1200px, 80%);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    animation: rise 520ms ease both;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.slogan {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-shadow: 0 0 18px rgba(69, 27, 222, 0.55);
+}
+
+.searchRow {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.searchInput {
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(230, 234, 242, 0.22);
+    background: transparent;
+    color: var(--text);
+    padding: 0 16px;
+    font-size: 14px;
+}
+
+.searchInput::placeholder {
+    color: rgba(230, 234, 242, 0.5);
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: rgba(69, 27, 222, 0.65);
+    box-shadow: 0 0 12px rgba(69, 27, 222, 0.25);
+}
+
+.filterSelect {
+    height: 44px;
+    min-width: 160px;
+    border-radius: 999px;
+    border: 1px solid rgba(69, 27, 222, 0.55);
+    background: rgba(69, 27, 222, 0.16);
+    color: rgba(149, 0, 255, 0.9);
+    padding: 0 18px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filterSelect:focus {
+    outline: none;
+    border-color: rgba(69, 27, 222, 0.8);
+}
+
+.courses {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.courseGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.courseCard {
+    min-height: 180px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(9, 10, 14, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: rise 520ms ease both;
+}
+
+.courseTags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(230, 234, 242, 0.75);
+}
+
+.tagAccent {
+    color: var(--mainText);
+    border-color: rgba(255, 213, 79, 0.6);
+}
+
+.courseTitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.courseText {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(230, 234, 242, 0.7);
+}
+
+.courseBtn {
+    margin-top: auto;
+    align-self: flex-start;
+    border-radius: 999px;
+    border: 1px solid rgba(69, 27, 222, 0.6);
+    background: rgba(69, 27, 222, 0.2);
+    color: rgba(230, 234, 242, 0.95);
+    padding: 8px 16px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+.pageBtn {
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: rgba(230, 234, 242, 0.7);
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pageBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pageInfo {
+    font-size: 12px;
+    color: rgba(230, 234, 242, 0.6);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 960px) {
+    .courseGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        width: min(1200px, 92%);
+    }
+
+    .searchRow {
+        grid-template-columns: 1fr;
+    }
+
+    .filterSelect {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .courseGrid {
+        grid-template-columns: 1fr;
+    }
+}
