@@ -1,8 +1,9 @@
 .card-nav-container {
-  position: relative;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
+  z-index: 10;
 }
 
 .card-nav {

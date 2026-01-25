@@ -13,12 +13,14 @@
     border: 1px solid rgba(230, 234, 242, 0.08);
     backdrop-filter: blur(6px);
     margin-top: 10rem;   
+    animation: rise 520ms ease both;
 }
 
 .loading {
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .header {
@@ -159,4 +161,32 @@
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dangerzone {
+    margin-top: 1rem;
+}
+
+.logoutbtn {
+    height: 3rem;
+    width: 10rem;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(204, 0, 0);
+    border: none;
+}
+
+.logoutbtn:hover {
+    background-color: rgb(215, 0, 0);
 }

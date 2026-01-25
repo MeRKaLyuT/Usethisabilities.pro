@@ -11,8 +11,8 @@ export default function Header() {
       bgColor: "#0D0716",
       textColor: "#fff",
       links: [
-        { label: "О нас", ariaLabel: "Home page", href: "/home" },
-        { label: "FAQ", ariaLabel: "FAQ", href: "/faq" }
+        { label: "Главная", ariaLabel: "Home page", href: "/" },
+        
       ]
     },
     {
@@ -21,7 +21,7 @@ export default function Header() {
       textColor: "#fff",
       links: [
         { label: "Каталог", ariaLabel: "Catalog", href: "/abilities" },
-        { label: "Стать автором", ariaLabel: "Be author", href: "/abilities/author" }
+        { label: "Роадмапы", ariaLabel: "Be author", href: "/roadmaps" }
       ]
     },
     {
@@ -29,8 +29,7 @@ export default function Header() {
       bgColor: "#271E37", 
       textColor: "#fff",
       links: [
-        { label: "Страница профиля", ariaLabel: "Profile", href: "/profile" },
-        { label: "Настройки", ariaLabel: "Settings", href: "/settings" },
+        { label: "Профиль", ariaLabel: "Profile", href: "/profile" },
       ]
     }
   ];

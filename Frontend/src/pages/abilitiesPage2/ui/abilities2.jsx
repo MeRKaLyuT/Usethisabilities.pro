@@ -2,9 +2,9 @@
 import * as styles from './abilities2.module.css';
 
 const courseExample = {
-    header: 'Frontend старт',
-    mainText: 'База по HTML, CSS и React с логикой роста без перегруза.',
-    tags: ['Roadmap', 'Frontend', 'Junior'],
+    header: 'Основы HTTP',
+    mainText: 'База по HTTP запросам',
+    tags: ['Roadmap', 'Fullstack', 'Junior'],
 };
 
 const courses = [courseExample]; // replace with server data

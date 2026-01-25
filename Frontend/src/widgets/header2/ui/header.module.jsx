@@ -2,6 +2,12 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import * as styles from './header.module.css';
+import { SignForm } from '../../signform/index.jsx';
+import { useMe } from '../../../features/auth/hooks/useMe.js';
+
+
+// that's a test menu and it will be delete in future!!!!!!
+
 
 const CardNav = ({
   logo,
@@ -16,6 +22,9 @@ const CardNav = ({
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
+
+  const { data: me, isLoading, isFetching, isError} = useMe();
 
   const navRef = useRef(null);
   const cardsRef = useRef([]);
@@ -152,14 +161,6 @@ const CardNav = ({
             <img src={logo} alt={logoAlt} width="" className={styles['logo']} />
             <h1 className={styles['title']}>Use This Abilities</h1>
           </div>
-
-          <button
-            type="button"
-            className={styles['card-nav-cta-button']}
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
-          >
-            Get Started
-          </button>
         </div>
 
         <div
@@ -185,6 +186,7 @@ const CardNav = ({
           ))}
         </div>
       </nav>
+      {isStarted && <SignForm />}
     </div>
   );
 };

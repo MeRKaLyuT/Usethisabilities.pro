@@ -1,12 +1,14 @@
 ﻿import React from 'react';
 import * as styles from './profile2.module.css';
 import { useMe } from '../../../features/auth/hooks/useMe.js';
+import { useLogout } from '../../../features/auth/hooks/useLogout.js';
 import { SignForm } from '../../../widgets/signform/index.jsx';
 
 const Profile2 = () => {
     const { data: me, isLoading, isFetching, isError} = useMe();
+    const { mutate: doLogout, isPending: isLogoutPending} = useLogout();
 
-    if (isLoading) return <div className={styles.loading}>Loading...</div>
+    if (isLoading || isFetching) return <div className={styles.loading}>Loading...</div>
     if (!me || isError) return <SignForm />
     if (me) return (
         <div className={styles.page}>
@@ -37,8 +39,8 @@ const Profile2 = () => {
                         <textarea className={styles.textarea} rows={4} placeholder="Short bio" />
                     </label>
                 </div>
-                <div>
-                    <p>Test UI. No backend</p>
+                <div className={styles.dangerzone}>
+                    <button onClick={() => doLogout()} className={styles.logoutbtn}>Выйти</button>
                 </div>
             </div>
         </div>

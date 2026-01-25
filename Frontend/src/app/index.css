@@ -24,3 +24,29 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
     font-size: 15px;
 }
+
+/* @keyframes global-rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#root * {
+    animation: global-rise 520ms ease both;
+}
+
+#root [class*="card-nav-container"],
+#root [class*="card-nav-container"] * {
+    animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #root * {
+        animation: none !important;
+    }
+} */

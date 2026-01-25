@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 18px;
+    animation: rise 520ms ease both;
 }
 
 .greeting {
@@ -85,5 +86,16 @@
 @media (max-width: 720px) {
     .page {
         padding: 100px 20px 60px;
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
