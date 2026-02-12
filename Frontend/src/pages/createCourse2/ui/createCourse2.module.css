@@ -1,0 +1,201 @@
+.page {
+    color: var(--text);
+    min-height: 100vh;
+    padding: 120px 0 80px;
+}
+
+.desktopLayout {
+    width: min(1240px, 90%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: rise 520ms ease both;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.title {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(30px, 4.6vw, 44px);
+    line-height: 1.1;
+    text-shadow: 0 0 18px rgba(69, 27, 222, 0.55);
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.createBtn {
+    height: 44px;
+    min-width: 176px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 213, 79, 0.72);
+    background: rgba(255, 213, 79, 0.2);
+    color: rgba(255, 248, 223, 0.96);
+    padding: 0 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.createBtn:hover {
+    background: rgba(255, 213, 79, 0.28);
+    border-color: rgba(255, 213, 79, 0.9);
+}
+
+.createBtn:focus {
+    outline: none;
+    border-color: rgba(255, 213, 79, 1);
+    box-shadow: 0 0 10px rgba(255, 213, 79, 0.24);
+}
+
+.createBtn:active {
+    transform: translateY(1px);
+}
+
+.coursesSection {
+    display: flex;
+}
+
+.coursesGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+.courseCard {
+    position: relative;
+    min-height: 210px;
+    padding: 20px 20px 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(6, 8, 12, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.courseCardSingle {
+    grid-column: 1 / -1;
+    width: min(600px, 100%);
+    justify-self: center;
+}
+
+.deleteBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 117, 117, 0.95);
+    background: rgba(255, 70, 70, 0.08);
+    color: rgba(255, 173, 173, 0.95);
+    padding: 0 12px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    background: rgba(255, 70, 70, 0.14);
+}
+
+.courseTitle {
+    margin: 0;
+    padding-right: 132px;
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.2;
+}
+
+.courseDescription {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(230, 234, 242, 0.72);
+}
+
+.editBtn {
+    margin-top: auto;
+    align-self: flex-start;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid rgba(69, 27, 222, 0.62);
+    background: rgba(69, 27, 222, 0.2);
+    color: rgba(230, 234, 242, 0.96);
+    padding: 0 16px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.editBtn:hover {
+    background: rgba(69, 27, 222, 0.28);
+}
+
+.mobileLayout {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .desktopLayout {
+        display: none;
+    }
+
+    .mobileLayout {
+        min-height: calc(100vh - 220px);
+        width: min(560px, 92%);
+        margin: 112px auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        text-align: center;
+        animation: rise 520ms ease both;
+    }
+
+    .mobileTitle {
+        margin: 0;
+        font-size: clamp(24px, 8vw, 34px);
+        line-height: 1.2;
+        text-shadow: 0 0 18px rgba(69, 27, 222, 0.5);
+    }
+
+    .homeBtn {
+        height: 44px;
+        border-radius: 999px;
+        border: 1px solid rgba(69, 27, 222, 0.6);
+        background: rgba(69, 27, 222, 0.2);
+        color: rgba(230, 234, 242, 0.96);
+        padding: 0 20px;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

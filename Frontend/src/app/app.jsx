@@ -10,6 +10,7 @@ import { Profile2 } from '../pages/profilePage2/index.js';
 import { Abilities2 } from '../pages/abilitiesPage2/index.js';
 import { Roadmaps2 } from '../pages/roadmaps2/index.js';
 import { CourseDetailPage } from '../pages/course2/index.js';
+import { CreateCourse2 } from '../pages/createCourse2/index.js';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
                 <Route path="/" element={<Home2 />} />
                 <Route path="/profile" element={<Profile2 />} />
                 <Route path="/abilities" element={<Abilities2 />} />
+                <Route path="/abilities/my/" element={<CreateCourse2 />} />
                 <Route path="/roadmaps" element={<Roadmaps2 />} />
                 <Route path="/abilities/:slug" element={<CourseDetailPage />} />
             </Routes>

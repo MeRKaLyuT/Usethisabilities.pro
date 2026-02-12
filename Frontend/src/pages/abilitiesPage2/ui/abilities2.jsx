@@ -15,7 +15,12 @@ const Abilities2 = () => {
         <div className={styles.page}>
             <div className={styles.container}>
                 <header className={styles.header}>
-                    <h1 className={styles.slogan}>Здесь ты найдешь то, что нужно</h1>
+                    <div className={styles.titleRow}>
+                        <h1 className={styles.slogan}>Здесь ты найдешь то, что нужно</h1>
+                        <button className={styles.createCourseBtn} type="button" onClick={() => window.location.href = `/abilities/my/`}>
+                            Создать свой курс
+                        </button>
+                    </div>
                     <div className={styles.searchRow}>
                         <input
                             className={styles.searchInput}
