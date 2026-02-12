@@ -9,6 +9,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
+        publicPath: '/',
         clean: true, // clean the directory dist before build
     },
     mode: 'development',

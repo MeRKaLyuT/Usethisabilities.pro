@@ -1,11 +1,11 @@
 ﻿import React from 'react';
 import * as styles from './profile2.module.css';
-import { useMe } from '../../../features/auth/hooks/useMe.js';
+import { useProfile } from '../../../features/auth/hooks/useProfile.js';
 import { useLogout } from '../../../features/auth/hooks/useLogout.js';
 import { SignForm } from '../../../widgets/signform/index.jsx';
 
 const Profile2 = () => {
-    const { data: me, isLoading, isFetching, isError} = useMe();
+    const { data: me, isLoading, isFetching, isError} = useProfile();
     const { mutate: doLogout, isPending: isLogoutPending} = useLogout();
 
     if (isLoading || isFetching) return <div className={styles.loading}>Loading...</div>

@@ -1,7 +1,12 @@
 import {api} from '../client.js';
 
-export const fetchMe = async () => {
-    const {data} = await api.get("/auth/me");
+export const fetchUserMe = async () => {
+    const {data} = await api.get("/auth/me/");
+    return data;
+}
+
+export const fetchProfileMe = async () => {
+    const {data} = await api.get("profile/me/");
     return data;
 }
 

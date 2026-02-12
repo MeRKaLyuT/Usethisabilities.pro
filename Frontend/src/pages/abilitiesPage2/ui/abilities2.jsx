@@ -2,12 +2,13 @@
 import * as styles from './abilities2.module.css';
 
 const courseExample = {
+    slug: 'http-requests-basics',
     header: 'Основы HTTP',
     mainText: 'База по HTTP запросам',
     tags: ['Roadmap', 'Fullstack', 'Junior'],
 };
 
-const courses = [courseExample]; // replace with server data
+const courses = [courseExample]; 
 
 const Abilities2 = () => {
     return (
@@ -45,12 +46,20 @@ const Abilities2 = () => {
                                 </div>
                                 <h2 className={styles.courseTitle}>{course.header}</h2>
                                 <p className={styles.courseText}>{course.mainText}</p>
-                                <button className={styles.courseBtn} type="button">Открыть</button>
+                                <button
+                                    className={styles.courseBtn}
+                                    type="button"
+                                    onClick={() => {
+                                        window.location.href = `/abilities/${course.slug}`;
+                                    }}
+                                >
+                                    Открыть
+                                </button>
                             </article>
                         ))}
                     </div>
 
-                    {/* Pagination placeholder */}
+                    {/* Pagination */}
                     <div className={styles.pagination}>
                         <button className={styles.pageBtn} type="button" disabled>Назад</button>
                         <span className={styles.pageInfo}>1 / 5</span>

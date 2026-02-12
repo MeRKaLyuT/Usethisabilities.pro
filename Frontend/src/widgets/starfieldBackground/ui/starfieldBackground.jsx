@@ -123,7 +123,7 @@ const StarfieldBackground = () => {
         animationId = requestAnimationFrame(animate);
 
         return () => {
-            observer.disconnect();
+            observer.disconnect();  
             cancelAnimationFrame(animationId);
         };
     }, []);

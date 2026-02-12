@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchMe } from "../../../shared/api/endpoints/auth.js";
+import { fetchUserMe } from "../../../shared/api/endpoints/auth.js";
 
 // useQuery - smart useEffect + useState + cache + retry + abort
 // take necessary data from the server and don't touch it again
@@ -7,7 +7,7 @@ import { fetchMe } from "../../../shared/api/endpoints/auth.js";
 export const useMe = () => {
     return useQuery({
         queryKey: ["me"], // unique name 
-        queryFn: fetchMe,
+        queryFn: fetchUserMe,
         retry: false, // if 401 - don't repeat
         refetchOnWindowFocus: false,
     })
