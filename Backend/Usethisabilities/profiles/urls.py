@@ -1,6 +1,7 @@
 from django.urls import path, include
+from .views import MeView
 
 
 urlpatterns = [
-    path('auth/', include("accounts.urls")),
+path("me/", MeView.as_view(), name="me"),
 ]
