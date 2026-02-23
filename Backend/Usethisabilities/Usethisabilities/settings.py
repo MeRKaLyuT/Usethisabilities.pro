@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'profiles',
     'accounts',
     'corsheaders',
+    'course',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
