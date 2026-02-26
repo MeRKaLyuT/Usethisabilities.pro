@@ -6,7 +6,7 @@ export const fetchUserMe = async () => {
 }
 
 export const fetchProfileMe = async () => {
-    const {data} = await api.get("profile/me/");
+    const {data} = await api.get("profiles/me/");
     return data;
 }
 

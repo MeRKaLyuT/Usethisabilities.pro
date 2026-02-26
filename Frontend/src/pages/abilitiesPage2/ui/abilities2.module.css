@@ -77,7 +77,7 @@
     cursor: pointer;
 }
 
-.createCourseBtn {
+.createAbilityBtn {
     height: 44px;
     min-width: 160px;
     border-radius: 999px;
@@ -92,18 +92,18 @@
     transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.createCourseBtn:hover {
+.createAbilityBtn:hover {
     background: rgba(255, 213, 79, 0.28);
     border-color: rgba(255, 213, 79, 0.9);
 }
 
-.createCourseBtn:focus {
+.createAbilityBtn:focus {
     outline: none;
     border-color: rgba(255, 213, 79, 1);
     box-shadow: 0 0 10px rgba(255, 213, 79, 0.24);
 }
 
-.createCourseBtn:active {
+.createAbilityBtn:active {
     transform: translateY(1px);
 }
 
@@ -112,20 +112,20 @@
     border-color: rgba(69, 27, 222, 0.8);
 }
 
-.courses {
+.abilities {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-.courseGrid {
+.abilityGrid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
 }
 
-.courseCard {
-    min-height: 180px;
+.abilityCard {
+    min-height: 220px;
     padding: 18px;
     border-radius: 18px;
     background: rgba(9, 10, 14, 0.55);
@@ -136,13 +136,16 @@
     animation: rise 520ms ease both;
 }
 
-.courseTags {
+.cardTopRow,
+.cardMetaRow {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 8px;
     flex-wrap: wrap;
 }
 
-.tag {
+.cardMetaChip {
     padding: 4px 10px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -152,23 +155,20 @@
     color: rgba(230, 234, 242, 0.75);
 }
 
-.tagAccent {
-    color: var(--mainText);
-    border-color: rgba(255, 213, 79, 0.6);
-}
-
-.courseTitle {
-    font-size: 18px;
+.abilityTitle {
+    margin: 0;
+    font-size: 20px;
     font-weight: 600;
 }
 
-.courseText {
+.abilityText {
+    margin: 0;
     font-size: 13px;
     line-height: 1.5;
     color: rgba(230, 234, 242, 0.7);
 }
 
-.courseBtn {
+.abilityBtn {
     margin-top: auto;
     align-self: flex-start;
     border-radius: 999px;
@@ -182,35 +182,23 @@
     cursor: pointer;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    padding-top: 4px;
-}
-
-.pageBtn {
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: transparent;
-    color: rgba(230, 234, 242, 0.7);
-    padding: 6px 14px;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.pageBtn:disabled {
-    opacity: 0.4;
+.abilityBtn:disabled {
+    opacity: 0.45;
     cursor: not-allowed;
 }
 
-.pageInfo {
-    font-size: 12px;
-    color: rgba(230, 234, 242, 0.6);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+.stateCard,
+.emptyState {
+    width: min(700px, 100%);
+    margin: 0 auto;
+    border-radius: 18px;
+    border: 1px solid rgba(230, 234, 242, 0.22);
+    padding: 24px;
+    background: rgba(8, 10, 18, 0.28);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 @keyframes rise {
@@ -225,7 +213,7 @@
 }
 
 @media (max-width: 960px) {
-    .courseGrid {
+    .abilityGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
@@ -240,14 +228,14 @@
         grid-template-columns: 1fr;
     }
 
-    .createCourseBtn,
+    .createAbilityBtn,
     .filterSelect {
         width: 100%;
     }
 }
 
 @media (max-width: 640px) {
-    .courseGrid {
+    .abilityGrid {
         grid-template-columns: 1fr;
     }
 }

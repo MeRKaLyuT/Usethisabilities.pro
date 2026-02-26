@@ -29,10 +29,10 @@ const SignForm = () => {
                 data.username?.[0] ||
                 data.password?.[0] ||
                 Object.values(data)[0]?.[0] ||
-                "Unknown error"
+                "Неизвестная ошибка"
             );
         }
-        return error?.message || "Network error";
+        return error?.message || "Ошибка сети";
     };
 
     useEffect(() => {
@@ -69,10 +69,10 @@ const SignForm = () => {
 
             <div className={styles.login}>
                 {isRegistered ? <h1>Sign in</h1> : <h1>Sign up</h1>}
-                <p style={{opacity: "85%"}}>We are glad to see you!</p>
+                <p style={{opacity: "85%"}}>Рады видеть вас!</p>
             </div>
             <div className={styles.otherappslogin}>
-                <h1>You can use this</h1>
+                <h1>Можно использовать это</h1>
                 <div>
                     <GitHubIcon sx={{fontSize: 40}} />
                     <GoogleIcon sx={{fontSize: 40}} />
@@ -80,31 +80,31 @@ const SignForm = () => {
             </div>
 
             <div className={`${styles.loginForm} ${isRegistered ? styles.visible : styles.hidden}`}>
-            <h1>Or sign in with</h1>                   
+            <h1>Или войти</h1>                   
                 <form onSubmit={onSubmitLogin}> 
                     <div className={styles.inputBox}>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" className={styles.input} />
-                        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" className={styles.input} />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Почта" type="email" className={styles.input} />
+                        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" type="password" className={styles.input} />
                     </div>
-                    <LoginBtn disabled={isLoginPending}>Sign in</LoginBtn>
+                    <LoginBtn disabled={isLoginPending}>Войти</LoginBtn>
                     {loginErrorMsg && <div style={{color: "red", fontSize:"1.5rem"}}>{loginErrorMsg}</div>}
                 </form>
-                <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Not registered yet?</NotRegisteredYetBtn>
+                <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Нет аккаунта?</NotRegisteredYetBtn>
             </div>
 
             <div className={`${styles.signupForm} ${!isRegistered ? styles.visible : styles.hidden}`}>
-                <h1>Or sign up with</h1>
+                <h1>Или зарегистрироваться</h1>
                 <form onSubmit={onSubmitRegister}> 
                     <div className={styles.inputBox}>
-                        <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" className={styles.input} />
-                        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" className={styles.input} />
-                        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" className={styles.input} />
-                        <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" type="password" className={styles.input} />
+                        <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Имя пользователя" className={styles.input} />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Почта" type="email" className={styles.input} />
+                        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" type="password" className={styles.input} />
+                        <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Подтвердите пароль" type="password" className={styles.input} />
                     </div>                    
-                    <LoginBtn disabled={isRegisterPending}>Sign up</LoginBtn>
+                    <LoginBtn disabled={isRegisterPending}>Зарегистрироваться</LoginBtn>
                     {registerErrorMsg && <div style={{color: "red", fontSize:"1.5rem"}}>{registerErrorMsg}</div>}
                 </form>
-                <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Already have an account?</NotRegisteredYetBtn>
+                <NotRegisteredYetBtn onClick={() => {setIsRegistered(!isRegistered)}}>Уже есть аккаунт?</NotRegisteredYetBtn>
             </div>
         </div>
     )

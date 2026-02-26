@@ -1,26 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as styles from './roadmaps2.module.css';
 import { Card, CardContent, Typography, Chip } from '@mui/material';
 
 const roadmapsData = [
     {
         id: 'backend',
-        title: 'Backend Разработчик',
-        subtitle: 'API, data, и основы серверной надежности.',
+        title: 'Бэкенд-разработчик',
+        subtitle: 'API, данные и основы серверной надежности.',
         difficulty: 'Средний',
         nodes: [
             { id: 'http', title: 'HTTP', tagSlug: 'http', x: 10, y: 20, group: 'core' },
             { id: 'rest', title: 'REST', tagSlug: 'rest', x: 22, y: 30, group: 'core' },
             { id: 'django', title: 'Django / DRF', tagSlug: 'django-drf', x: 34, y: 22, group: 'framework' },
-            { id: 'auth', title: 'Auth (JWT + Cookies)', tagSlug: 'auth-jwt-cookies', x: 48, y: 30, group: 'security' },
+            { id: 'auth', title: 'Аутентификация (JWT + cookies)', tagSlug: 'auth-jwt-cookies', x: 48, y: 30, group: 'security' },
             { id: 'postgres', title: 'PostgreSQL', tagSlug: 'postgresql', x: 60, y: 24, group: 'data' },
-            { id: 'cache', title: 'Caching', tagSlug: 'caching', x: 72, y: 34, group: 'data' },
+            { id: 'cache', title: 'Кэширование', tagSlug: 'caching', x: 72, y: 34, group: 'data' },
             { id: 'docker', title: 'Docker', tagSlug: 'docker', x: 84, y: 26, group: 'infra' },
-            { id: 'testing', title: 'Testing', tagSlug: 'backend-testing', x: 28, y: 46, group: 'quality' },
-            { id: 'async', title: 'Async Tasks', tagSlug: 'async-tasks', x: 42, y: 50, group: 'ops' },
+            { id: 'testing', title: 'Тестирование', tagSlug: 'backend-testing', x: 28, y: 46, group: 'quality' },
+            { id: 'async', title: 'Асинхронные задачи', tagSlug: 'async-tasks', x: 42, y: 50, group: 'ops' },
             { id: 'nginx', title: 'Nginx', tagSlug: 'nginx', x: 60, y: 52, group: 'infra' },
             { id: 'cicd', title: 'CI/CD', tagSlug: 'ci-cd', x: 76, y: 58, group: 'ops' },
-            { id: 'observability', title: 'Observability', tagSlug: 'observability', x: 90, y: 72, group: 'ops' },
+            { id: 'observability', title: 'Наблюдаемость', tagSlug: 'observability', x: 90, y: 72, group: 'ops' },
         ],
         links: [
             { from: 'http', to: 'rest' },
@@ -39,7 +40,7 @@ const roadmapsData = [
     },
     {
         id: 'frontend',
-        title: 'Frontend Разработчик',
+        title: 'Фронтенд-разработчик',
         subtitle: 'Основы UI с использованием современных инструментов для приложений.',
         difficulty: 'Начинающий',
         nodes: [
@@ -47,13 +48,13 @@ const roadmapsData = [
             { id: 'js', title: 'JavaScript', tagSlug: 'javascript', x: 22, y: 36, group: 'core' },
             { id: 'ts', title: 'TypeScript', tagSlug: 'typescript', x: 28, y: 18, group: 'tools' },
             { id: 'react', title: 'React', tagSlug: 'react', x: 40, y: 30, group: 'framework' },
-            { id: 'state', title: 'State', tagSlug: 'state-management', x: 52, y: 22, group: 'framework' },
+            { id: 'state', title: 'Управление состоянием', tagSlug: 'state-management', x: 52, y: 22, group: 'framework' },
             { id: 'rq', title: 'React Query', tagSlug: 'react-query', x: 62, y: 20, group: 'tools' },
             { id: 'mui', title: 'MUI', tagSlug: 'mui', x: 70, y: 32, group: 'ui' },
-            { id: 'routing', title: 'Routing', tagSlug: 'routing', x: 58, y: 42, group: 'framework' },
-            { id: 'testing', title: 'Testing', tagSlug: 'frontend-testing', x: 74, y: 52, group: 'quality' },
-            { id: 'build', title: 'Build', tagSlug: 'build-tools', x: 86, y: 34, group: 'tools' },
-            { id: 'perf', title: 'Performance', tagSlug: 'frontend-performance', x: 90, y: 70, group: 'quality' },
+            { id: 'routing', title: 'Маршрутизация', tagSlug: 'routing', x: 58, y: 42, group: 'framework' },
+            { id: 'testing', title: 'Тестирование', tagSlug: 'frontend-testing', x: 74, y: 52, group: 'quality' },
+            { id: 'build', title: 'Сборка', tagSlug: 'build-tools', x: 86, y: 34, group: 'tools' },
+            { id: 'perf', title: 'Производительность', tagSlug: 'frontend-performance', x: 90, y: 70, group: 'quality' },
         ],
         links: [
             { from: 'htmlcss', to: 'js' },
@@ -72,21 +73,21 @@ const roadmapsData = [
     },
     {
         id: 'devops',
-        title: 'DevOps Основы',
+        title: 'Основы DevOps',
         subtitle: 'Автоматизация, инфраструктура и процесс доставки информации.',
         difficulty: 'Средний',
         nodes: [
-            { id: 'linux', title: 'Linux Basics', tagSlug: 'linux', x: 10, y: 22, group: 'core' },
-            { id: 'network', title: 'Networking', tagSlug: 'networking', x: 24, y: 32, group: 'core' },
+            { id: 'linux', title: 'Основы Linux', tagSlug: 'linux', x: 10, y: 22, group: 'core' },
+            { id: 'network', title: 'Сети', tagSlug: 'networking', x: 24, y: 32, group: 'core' },
             { id: 'git', title: 'Git', tagSlug: 'git', x: 18, y: 52, group: 'tools' },
-            { id: 'script', title: 'Scripting', tagSlug: 'scripting', x: 34, y: 20, group: 'tools' },
+            { id: 'script', title: 'Скрипты', tagSlug: 'scripting', x: 34, y: 20, group: 'tools' },
             { id: 'docker', title: 'Docker', tagSlug: 'docker', x: 42, y: 32, group: 'infra' },
             { id: 'k8s', title: 'Kubernetes', tagSlug: 'kubernetes', x: 56, y: 26, group: 'infra' },
-            { id: 'cloud', title: 'Cloud', tagSlug: 'cloud', x: 72, y: 20, group: 'cloud' },
+            { id: 'cloud', title: 'Облако', tagSlug: 'cloud', x: 72, y: 20, group: 'cloud' },
             { id: 'cicd', title: 'CI/CD', tagSlug: 'ci-cd', x: 60, y: 46, group: 'ops' },
-            { id: 'monitor', title: 'Monitoring', tagSlug: 'monitoring', x: 74, y: 38, group: 'ops' },
+            { id: 'monitor', title: 'Мониторинг', tagSlug: 'monitoring', x: 74, y: 38, group: 'ops' },
             { id: 'iac', title: 'IaC', tagSlug: 'infrastructure-as-code', x: 82, y: 50, group: 'infra' },
-            { id: 'security', title: 'Security', tagSlug: 'security', x: 92, y: 70, group: 'ops' },
+            { id: 'security', title: 'Безопасность', tagSlug: 'security', x: 92, y: 70, group: 'ops' },
         ],
         links: [
             { from: 'linux', to: 'network' },
@@ -106,6 +107,7 @@ const roadmapsData = [
 ];
 
 const Roadmaps2 = () => {
+    const navigate = useNavigate();
     const [selectedRoadmapId, setSelectedRoadmapId] = React.useState(roadmapsData[0].id);
     const selectedRoadmap = roadmapsData.find((item) => item.id === selectedRoadmapId) || roadmapsData[0];
     const mapRef = React.useRef(null);
@@ -133,9 +135,9 @@ const Roadmaps2 = () => {
         });
     }, [clearActiveLinks]);
 
-    const handleNodeClick = React.useCallback((tagSlug) => {
-        window.location.href = `/courses?tag=${encodeURIComponent(tagSlug)}`;
-    }, []);
+    const handleNodeClick = React.useCallback((searchText) => {
+        navigate('/abilities', { state: { prefillSearch: searchText } });
+    }, [navigate]);
 
     const handleCardKeyDown = (event, roadmapId) => {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -156,7 +158,7 @@ const Roadmaps2 = () => {
                     </div>
                     <div className={styles.headerHint}>
                         <span className={styles.headerDot} aria-hidden="true" />
-                        Кликните на точку-звезду, чтобы найти курс в каталоге
+                        Кликните на точку-звезду, чтобы найти Ability в каталоге
                     </div>
                 </header>
 
@@ -236,8 +238,8 @@ const Roadmaps2 = () => {
                                         onFocus={() => highlightLinks(node.id)}
                                         onBlur={clearActiveLinks}
                                         onMouseLeave={clearActiveLinks}
-                                        onClick={() => handleNodeClick(node.tagSlug)}
-                                        aria-label={`Open courses tagged ${node.title}`}
+                                        onClick={() => handleNodeClick(node.title)}
+                                        aria-label={`Открыть Abilities с тегом ${node.title}`}
                                     >
                                         <span className={styles.nodePlanet} aria-hidden="true" />
                                         <span className={styles.nodeLabel}>{node.title}</span>
@@ -253,7 +255,7 @@ const Roadmaps2 = () => {
                                     type="button"
                                     className={styles.mapListItem}
                                     data-group={node.group}
-                                    onClick={() => handleNodeClick(node.tagSlug)}
+                                    onClick={() => handleNodeClick(node.title)}
                                 >
                                     <span className={styles.mapListPlanet} aria-hidden="true" />
                                     <span className={styles.mapListLabel}>{node.title}</span>

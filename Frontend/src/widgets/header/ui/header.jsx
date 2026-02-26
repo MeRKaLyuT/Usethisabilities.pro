@@ -7,9 +7,9 @@ export default function Header() {
   const menuRef = useRef(null);
   const [moonState, setMoonState] = useState(false);
   const items = [
-      {label: 'Main', to: '/'},
-      {label: 'Abilities', to: '/skills'},
-      {label: 'Profile', to: '/profile'},
+      {label: 'Главная', to: '/'},
+      {label: 'Навыки', to: '/skills'},
+      {label: 'Профиль', to: '/profile'},
   ];
 
   useEffect(() => {

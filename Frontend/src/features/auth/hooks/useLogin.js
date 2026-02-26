@@ -8,7 +8,10 @@ export const useLogin = () => {
     return useMutation({
         mutationFn: login,
         onSuccess: async () => {
-            qc.invalidateQueries({queryKey: ["me"]});
+            await Promise.all([
+                qc.invalidateQueries({ queryKey: ["me"] }),
+                qc.invalidateQueries({ queryKey: ["profile"] }),
+            ]);
         },
     })
 }

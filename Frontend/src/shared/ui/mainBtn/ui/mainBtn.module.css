@@ -1,0 +1,14 @@
+.createButton {
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 234, 242, 0.42);
+    background: rgba(8, 10, 18, 0.22);
+    color: rgba(247, 249, 255, 0.96);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    font-size: 14px;
+    transition: border-color 180ms ease, background-color 180ms ease;
+}

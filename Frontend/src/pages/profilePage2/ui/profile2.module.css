@@ -1,18 +1,18 @@
 ﻿.page {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     color: var(--text);
+    padding: 110px 20px 60px;
 }
 
 .card {
-    width: min(820px, 100%);
-    background: rgba(16, 18, 24, 0.86);
+    width: min(900px, 100%);
+    background: rgba(16, 18, 24, 0.72);
     border-radius: 24px;
-    padding: 32px;
-    border: 1px solid rgba(230, 234, 242, 0.08);
+    padding: 30px;
+    border: 1px solid rgba(230, 234, 242, 0.12);
     backdrop-filter: blur(6px);
-    margin-top: 10rem;   
     animation: rise 520ms ease both;
 }
 
@@ -21,55 +21,157 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 40vh;
 }
 
 .header {
     display: flex;
     align-items: center;
     gap: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(230, 234, 242, 0.08);
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(230, 234, 242, 0.1);
 }
 
 .avatar {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed rgba(255, 213, 79, 0.6);
-    background: linear-gradient(135deg, rgba(69, 27, 222, 0.35), rgba(255, 213, 79, 0.15));
+    border: 2px dashed rgba(255, 213, 79, 0.58);
+    background: linear-gradient(135deg, rgba(69, 27, 222, 0.35), rgba(255, 213, 79, 0.14));
 }
 
 .avatarLabel {
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(230, 234, 242, 0.7);
+    color: rgba(230, 234, 242, 0.72);
 }
 
 .titleBlock {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .title {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 600;
 }
 
 .subtitle {
     font-size: 14px;
-    color: rgba(230, 234, 242, 0.7);
+    color: rgba(230, 234, 242, 0.72);
+}
+
+.topActions {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.authorPageBtn,
+.logoutBtn {
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.authorPageBtn {
+    color: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 213, 79, 0.68);
+    background: rgba(255, 213, 79, 0.2);
+}
+
+.authorPageBtn:hover {
+    background: rgba(255, 213, 79, 0.28);
+    border-color: rgba(255, 213, 79, 0.9);
+}
+
+.logoutBtn {
+    color: white;
+    border-color: rgba(255, 120, 120, 0.66);
+    background: rgba(180, 0, 0, 0.72);
+}
+
+.logoutBtn:hover:not(:disabled) {
+    background: rgba(200, 0, 0, 0.78);
+}
+
+.logoutBtn:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+.tabs {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tabBtn {
+    min-height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(230, 234, 242, 0.24);
+    background: transparent;
+    color: rgba(230, 234, 242, 0.86);
+    padding: 0 16px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.tabBtn:hover {
+    border-color: rgba(255, 213, 79, 0.58);
+}
+
+.tabBtnActive {
+    border-color: rgba(69, 27, 222, 0.8);
+    background: rgba(69, 27, 222, 0.24);
+    color: #fff;
+}
+
+.panel {
+    margin-top: 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(230, 234, 242, 0.1);
+    background: rgba(6, 8, 12, 0.42);
+    padding: 20px;
+    animation: rise 360ms ease both;
+}
+
+.panelTitle {
+    font-size: 22px;
+    margin: 0;
+}
+
+.panelLead {
+    margin: 8px 0 0;
+    color: rgba(230, 234, 242, 0.72);
+    font-size: 14px;
 }
 
 .fields {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 24px;
-    margin-top: 24px;
+    gap: 18px 20px;
+    margin-top: 16px;
 }
 
 .field {
@@ -83,69 +185,62 @@
 }
 
 .label {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: rgba(230, 234, 242, 0.6);
 }
 
 .input,
 .textarea {
-    background-color: #0c0d10;
-    border: 1px solid rgba(230, 234, 242, 0.14);
+    background-color: rgba(12, 13, 16, 0.9);
+    border: 1px solid rgba(230, 234, 242, 0.18);
     border-radius: 12px;
     color: var(--text);
     padding: 12px 14px;
     font-size: 14px;
-    transition: border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.input:focus,
-.textarea:focus {
-    outline: none;
-    border-color: rgba(255, 213, 79, 0.6);
-    box-shadow: 0 0 0 3px rgba(255, 213, 79, 0.12);
 }
 
 .textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 110px;
 }
 
-.hint {
-    font-size: 12px;
-    color: rgba(230, 234, 242, 0.55);
-}
-
-.actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-}
-
-.saveBtn {
-    background-color: var(--mainPurple);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 24px;
+.stateText {
+    margin: 16px 0 0;
+    color: rgba(230, 234, 242, 0.72);
     font-size: 14px;
-    font-weight: 600;
-    opacity: 0.6;
-    cursor: not-allowed;
 }
 
-.helper {
-    font-size: 13px;
-    color: rgba(230, 234, 242, 0.6);
+.abilitiesList {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-@media (max-width: 720px) {
+.abilityItem {
+    border: 1px solid rgba(230, 234, 242, 0.14);
+    border-radius: 14px;
+    padding: 12px 14px;
+    background: rgba(10, 12, 18, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.abilityLine {
+    font-size: 14px;
+    color: rgba(230, 234, 242, 0.92);
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+@media (max-width: 740px) {
     .card {
-        padding: 24px;
+        padding: 22px;
     }
 
     .header {
@@ -157,9 +252,9 @@
         grid-template-columns: 1fr;
     }
 
-    .actions {
-        flex-direction: column;
-        align-items: flex-start;
+    .authorPageBtn,
+    .logoutBtn {
+        width: 100%;
     }
 }
 
@@ -168,25 +263,9 @@
         opacity: 0;
         transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.dangerzone {
-    margin-top: 1rem;
-}
-
-.logoutbtn {
-    height: 3rem;
-    width: 10rem;
-    color: white;
-    border-radius: 10px;
-    background-color: rgb(204, 0, 0);
-    border: none;
-}
-
-.logoutbtn:hover {
-    background-color: rgb(215, 0, 0);
 }

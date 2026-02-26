@@ -1,0 +1,176 @@
+.section {
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.gridSingle {
+    grid-template-columns: minmax(320px, 640px);
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    border-radius: 18px;
+    border: 1px solid rgba(230, 234, 242, 0.24);
+    background: rgba(8, 10, 18, 0.34);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: rise 420ms ease both;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 15% 20%, rgba(69, 27, 222, 0.18), transparent 50%);
+    pointer-events: none;
+}
+
+.cardHeader {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: clamp(20px, 2vw, 24px);
+    color: rgba(255, 255, 255, 0.96);
+    line-height: 1.2;
+}
+
+.fields {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+}
+
+.cardActions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.actionGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.openButton {
+    border-radius: 999px;
+    border: 1px solid rgba(132, 182, 255, 0.64);
+    background: rgba(40, 78, 158, 0.28);
+    color: rgba(239, 246, 255, 0.96);
+    height: 36px;
+    padding: 0 14px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.openButton:hover {
+    border-color: rgba(173, 211, 255, 0.86);
+    background: rgba(44, 91, 182, 0.36);
+}
+
+.openButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.deleteButton {
+    border-radius: 999px;
+    border: 1px solid rgba(255, 138, 138, 0.6);
+    background: rgba(124, 22, 22, 0.28);
+    color: rgba(255, 230, 230, 0.95);
+    height: 36px;
+    padding: 0 14px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.deleteButton:hover {
+    border-color: rgba(255, 176, 176, 0.86);
+    background: rgba(148, 25, 25, 0.4);
+}
+
+.deleteButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.errorText {
+    border-radius: 10px;
+    border: 1px solid rgba(255, 124, 124, 0.5);
+    background: rgba(59, 8, 8, 0.3);
+    color: rgba(255, 217, 217, 0.96);
+    padding: 9px 12px;
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+.stateCard {
+    width: min(700px, 100%);
+    margin: 0 auto;
+    border-radius: 18px;
+    border: 1px solid rgba(230, 234, 242, 0.22);
+    padding: 24px;
+    background: rgba(8, 10, 18, 0.28);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gridSingle {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .card {
+        padding: 16px;
+    }
+
+    .fields {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

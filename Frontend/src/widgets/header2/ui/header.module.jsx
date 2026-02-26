@@ -11,7 +11,7 @@ import { useMe } from '../../../features/auth/hooks/useMe.js';
 
 const CardNav = ({
   logo,
-  logoAlt = 'Logo',
+  logoAlt = 'Логотип',
   items,
   className = '',
   ease = 'power3.out',
@@ -150,7 +150,7 @@ const CardNav = ({
             type="button"
             className={`${styles['hamburger-menu']} ${isHamburgerOpen ? styles.open : ''}`}
             onClick={toggleMenu}
-            aria-label="Toggle menu"
+            aria-label="Открыть меню"
             style={{ color: menuColor }}
           >
             <span className={styles['hamburger-line']} />
@@ -159,7 +159,7 @@ const CardNav = ({
 
           <div className={styles['logo-container']}>
             <img src={logo} alt={logoAlt} width="" className={styles['logo']} />
-            <h1 className={styles['title']}>Use This Abilities</h1>
+            <h1 className={styles['title']}>UseThisAbilities</h1>
           </div>
         </div>
 

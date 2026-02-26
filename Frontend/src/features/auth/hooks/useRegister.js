@@ -8,7 +8,10 @@ export const useRegister = () => {
     return useMutation({
         mutationFn: register,
         onSuccess: async () => {
-            qc.invalidateQueries({queryKey: ["me"]});
+            await Promise.all([
+                qc.invalidateQueries({ queryKey: ["me"] }),
+                qc.invalidateQueries({ queryKey: ["profile"] }),
+            ]);
         }
     });
 }

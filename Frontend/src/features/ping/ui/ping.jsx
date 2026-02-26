@@ -27,7 +27,7 @@ export default function PingServer() {
 
     return(
         <div className={styles.ping}>
-            <button onClick={handleClick} className={styles.btn}>Ping server</button>
+            <button onClick={handleClick} className={styles.btn}>Проверить сервер</button>
             {error && <p style={{color: "red"}}>{error}</p>}
             {data && <p style={{color: "#a5ff30"}}>{data}</p>}
         </div>

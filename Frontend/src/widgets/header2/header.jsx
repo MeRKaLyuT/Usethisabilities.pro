@@ -1,7 +1,6 @@
 import CardNav from './ui/header.module.jsx';
 import logo from '../../../media/saturnwhite.png';
 import React from 'react';
-import { href } from 'react-router-dom';
 
 
 export default function Header() {
@@ -11,7 +10,7 @@ export default function Header() {
       bgColor: "#0D0716",
       textColor: "#fff",
       links: [
-        { label: "Главная", ariaLabel: "Home page", href: "/" },
+        { label: "Главная", ariaLabel: "Главная страница", href: "/" },
         
       ]
     },
@@ -20,8 +19,8 @@ export default function Header() {
       bgColor: "#170D27",
       textColor: "#fff",
       links: [
-        { label: "Каталог", ariaLabel: "Catalog", href: "/abilities" },
-        { label: "Роадмапы", ariaLabel: "Be author", href: "/roadmaps" }
+        { label: "Каталог", ariaLabel: "Каталог курсов", href: "/abilities" },
+        { label: "Роадмапы", ariaLabel: "Роадмапы", href: "/roadmaps" }
       ]
     },
     {
@@ -29,7 +28,7 @@ export default function Header() {
       bgColor: "#271E37", 
       textColor: "#fff",
       links: [
-        { label: "Профиль", ariaLabel: "Profile", href: "/profile" },
+        { label: "Профиль", ariaLabel: "Профиль", href: "/profile" },
       ]
     }
   ];
@@ -37,7 +36,7 @@ export default function Header() {
   return (
     <CardNav
       logo={logo}
-      logoAlt="Company Logo"
+      logoAlt="Логотип компании"
       items={items}
       baseColor="#451bdeff"
       menuColor="#ffffffff"
