@@ -21,11 +21,6 @@ from .serializers import (
 
 
 class CourseListCreateView(generics.ListCreateAPIView):
-    """
-    GET /courses/      -> catalog (published only)
-    POST /courses/     -> create course (auth required)
-    """
-
     queryset = Course.objects.select_related("author").all()
 
     def get_permissions(self):
@@ -49,7 +44,6 @@ class CourseListCreateView(generics.ListCreateAPIView):
         return CourseWriteSerializer
 
     def perform_create(self, serializer):
-        # author всегда берём с сервера
         serializer.save(author=self.request.user)
 
 
@@ -200,3 +194,28 @@ class LessonDetailView(generics.RetrieveUpdateDestroyAPIView):
         if self.request.method in ("PATCH", "PUT"):
             return LessonWriteSerializer
         return LessonDetailSerializer
+
+
+class CourseDeleteView(generics.DestroyAPIView):
+    queryset = Course.objects.select_related("author")
+    permission_classes = [IsAuthenticated, IsCourseAuthorOrReadOnly]
+
+
+class MyStartedCourseListView(generics.ListAPIView):
+    """
+    GET /courses/my/started/  -> courses started by current user
+    """
+    serializer_class = UserCourseSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return (
+            UserCourse.objects
+            .select_related("course", "course__author")
+            .filter(
+                user=self.request.user,
+                status=UserCourse.StudyStatus.ACTIVE,
+                course__status=Status.PUBLISHED,
+            )
+            .order_by("-completed_at")
+        )

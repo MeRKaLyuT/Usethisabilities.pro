@@ -5,7 +5,6 @@ from datetime import timedelta
 from dotenv import load_dotenv, find_dotenv
 
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(find_dotenv(filename=".env", usecwd=True), override=True)
 
@@ -68,8 +67,10 @@ TEMPLATES = [
     },
 ]
 
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'http://localhost:8000',
 ]
 
 WSGI_APPLICATION = 'Usethisabilities.wsgi.application'
@@ -122,7 +123,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'accounts.authentication.CookieAuthentication',
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
 }
