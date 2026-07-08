@@ -54,9 +54,8 @@ class LoginSerializer(serializers.Serializer):
         return attrs
 
 
-# this serializer is needed for the user output (like white list but for the data)
-class MeSerializer(serializers.ModelSerializer):
+class MeUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("id", "email") # add other types after the test (username, avatar...)
+        fields = ("id", "username", "email")
         
