@@ -48,9 +48,6 @@ class CourseListCreateView(generics.ListCreateAPIView):
 
 
 class MyCourseListView(generics.ListAPIView):
-    """
-    GET /courses/my/   -> all current user's courses
-    """
     serializer_class = CourseMyListSerializer
     permission_classes = [IsAuthenticated]
 
